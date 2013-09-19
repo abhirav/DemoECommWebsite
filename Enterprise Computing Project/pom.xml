@@ -1,0 +1,177 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.EC.ass2</groupId>
+    <artifactId>ECAssignment2</artifactId>
+    <version>1.0</version>
+    <packaging>war</packaging>
+
+    <name>ECAssignment2</name>
+	<repositories>
+		<repository>
+			<id>EclipseLink Repo</id>
+			<!--<name>Eclipse maven repository http://eclipse.ialto.org/rt/eclipselink/maven.repo/</name>-->
+			<name>Eclipse maven repository http://download.eclipse.org/rt/eclipselink/maven.repo</name>
+			<!--<url>http://mirror.csclub.uwaterloo.ca/eclipse/rt/eclipselink/maven.repo/</url>-->
+			<url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
+		</repository>
+
+		<repository>
+			<id>Temporary EclipseLink Repo (should be replaced by the previous one)</id>
+			<name>Eclipse maven repository http://eclipse.ialto.org/rt/eclipselink/maven.repo/</name>
+			<url>http://mirror.csclub.uwaterloo.ca/eclipse/rt/eclipselink/maven.repo/</url>
+		</repository>
+                
+                <repository>  
+                    <id>prime-repo</id>  
+                    <name>PrimeFaces Maven Repository</name>  
+                    <url>http://repository.primefaces.org</url>  
+                    <layout>default</layout>  
+                </repository> 
+                
+<!--                <repository>  
+                    <id>a4j-repo</id>  
+                    <name>AJAX Framework Repository</name>  
+                    <url>http://repository.jboss.org/nexus/content/repositories/deprecated</url>  
+                    <layout>default</layout>  
+                </repository> -->
+                
+ 	</repositories>
+
+	<dependencies>
+            
+                <dependency>  
+                    <groupId>org.primefaces</groupId>  
+                    <artifactId>primefaces</artifactId>  
+                    <version>3.5</version>  
+                </dependency> 
+            
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>javax.persistence</artifactId>
+			<!--<version>${javax.persistence-version}</version>-->
+			<version>2.0.0</version>            
+			<!--<scope>provided</scope>-->
+		</dependency>
+		
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<!--<version>${eclipselink-version}</version>-->
+			<version>2.0.1</version>            
+			<!--<scope>provided</scope>-->
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derbyclient</artifactId>
+			<version>10.6.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.6.1.0</version>
+			<!--<scope>test</scope>-->
+		</dependency>
+                
+<!--                <dependency>
+                    <groupId>net.java.dev.ajax4jsf</groupId>
+                    <artifactId>ajax4jsf</artifactId>
+                    <version>1.0.6</version>
+                </dependency>-->
+                
+	 <dependency>
+	  <groupId>javax.faces</groupId>
+	  <artifactId>jsf-api</artifactId>
+	  <version>2.1</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>javax</groupId>
+	  <artifactId>javaee-web-api</artifactId>
+	  <version>6.0</version>
+	  <type>jar</type>
+	 </dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<inherited>true</inherited>
+				<configuration>
+				<source>1.6</source>
+				<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
+
+<!--    <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>6.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${endorsed.dir}</outputDirectory>
+                            <silent>true</silent>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-endorsed-api</artifactId>
+                                    <version>6.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>-->

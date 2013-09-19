@@ -1,0 +1,23 @@
+/* 
+    Document   : style
+    Created on : May 7, 2013, 11:58:30 AM
+    Author     : Abhi
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+h1{
+    background-color: #506987;
+    color: white;
+}
+h2{
+    color:red;
+}
+body{
+    background-color: #f2f2f2;
+}
+
+

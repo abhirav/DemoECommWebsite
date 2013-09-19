@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+        <title>List Smartphones</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </h:head>
+    <h:body>
+        <h1>List of the Smartphones</h1>
+    <hr/>
+    
+    <h:outputFormat value="Successfully created the Smartphone -> {0}" >
+        <f:param value="#{smartphoneController.itemName}"/>
+    </h:outputFormat>
+    <br/>
+    <br/>
+    <h:form>
+    <p:dataTable value="#{smartphoneController.smartphonelist}" var="sp" >
+        <f:facet name="header">  
+            List of the Smartphones
+        </f:facet> 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Title"/>
+            </f:facet>
+            <h:commandLink value="#{sp.title}" action="#{smartphoneController.findSmartphoneLink(sp.title)}"/>
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Operating system"/>
+            </f:facet>
+            <h:outputText value="#{sp.operatingSystem}"/>
+        </p:column>
+               
+        <f:facet name="footer">  
+            Total Smartphones:  #{smartphoneController.smartphonelist.size().toString()}
+        </f:facet> 
+    </p:dataTable>
+    </h:form>
+    <br/><br/>
+    <hr/>
+    <h:form>
+        <h:link outcome="newSmartphone.xhtml" value="Create a new Smartphone"/> | 
+        <h:link outcome="index.xhtml" value="Main Page"/>
+    </h:form>
+</h:body>
+</html>

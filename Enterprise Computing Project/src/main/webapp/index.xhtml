@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Enterprise Computing Assignment 2 - eBusiness demo web app</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </h:head>
+    <h:body>
+        <h1>Welcome to eBusiness Demo Application (Product, Customer and Order Management)</h1>
+        <hr/>
+        <h:form>
+        <h2>Product</h2>
+
+        <h4>Smartphone</h4>
+        <h:outputLink value="newSmartphone.faces">
+            <h:outputText value="Create a new Smartphone" />
+        </h:outputLink> | 
+        <h:commandLink value="The Stock of Smartphones" action="#{smartphoneController.findAllSmartphones}" />
+        | 
+        <h:outputLink value="searchSmartphone.faces">
+            <h:outputText value=" Search for a Smartphone " />
+        </h:outputLink>
+
+        <br/>
+
+        <h4>Computer</h4>
+        <h:outputLink value="newComputer.faces">
+            <h:outputText value="Create a new Computer" />
+        </h:outputLink> | 
+        <h:commandLink value="The Stock of Computer" action="#{computerController.findAllComputer()}" />
+        | 
+        <h:outputLink value="searchComputer.faces">
+            <h:outputText value=" Search for a Computer " />
+        </h:outputLink>
+
+        <br/><br/>
+
+        <h2>Customer</h2>
+        <h:outputLink value="newCustomer.faces">
+            <h:outputText value="Create a new Customer" />
+        </h:outputLink> | 
+        <h:commandLink value="List of Customers" action="#{customerController.findAllCustomers()}" />
+        | 
+        <h:outputLink value="searchCustomer.faces">
+            <h:outputText value=" Search for a Customer " />
+        </h:outputLink>
+
+        <br/><br/>
+
+        <h2>Order</h2>
+        <h:commandLink value="Create a new Order" action="#{orderItemController.getAllLists()}" />
+        | 
+        <h:commandLink value="List of Orders" action="#{orderItemController.findAllOrder()}" />
+        | 
+        <h:outputLink value="searchOrder.faces">
+            <h:outputText value="Search for an Order" />
+        </h:outputLink>
+        </h:form>
+    </h:body>
+
+</html>

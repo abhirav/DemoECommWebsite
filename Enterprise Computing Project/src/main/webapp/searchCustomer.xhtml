@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Search Customer</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </h:head>
+    <h:body>
+        <h1>Search for a Customer</h1>
+        <h:form>
+        <h:panelGrid columns="2">
+            <p:outputLabel value="Enter Name of Customer to search: "/>
+            <p:inputText value="#{customerController.param_fname}" />
+            <br/>
+            <p:commandButton value="Search for a Customer" action="#{customerController.findCustomer()}"/> 
+        </h:panelGrid>
+        </h:form>
+        <hr/>
+        <h:form>
+        <h:commandLink value="Customer List" action="#{customerController.findAllCustomers()}">
+        </h:commandLink> | 
+        <h:link outcome="index.xhtml" value="Main Page"/>
+        </h:form>
+    </h:body>
+</html>
+

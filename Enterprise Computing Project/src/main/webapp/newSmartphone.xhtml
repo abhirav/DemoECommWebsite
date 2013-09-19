@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>New Smartphone</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </h:head>
+    <h:body>
+        <h1>Create a New Smartphone</h1>
+        <hr/>
+        <h:form>
+            <p:messages id="messages" autoUpdate="true" closable="true" /> 
+            <p:panelGrid columns="2" id="panel">
+            <p:outputLabel value="Title: *"/>
+            <p:inputText id="Title" value="#{smartphoneController.smartphone.title}" required="true"/>
+            <p:outputLabel value="Price: *"/>
+            <p:inputText id="Price" value="#{smartphoneController.smartphone.price}"  required="true"/>
+            <p:outputLabel value="Brand: *"/>
+            <p:inputText id="Brand" value="#{smartphoneController.smartphone.brand}" required="true"/>
+            <p:outputLabel value="Description: "/>
+            <p:inputTextarea id="Desc" value="#{smartphoneController.smartphone.description}" cols="15" rows="5"/>
+            <p:outputLabel value="Quantity: *"/>
+            <p:inputText id="Quantity" value="#{smartphoneController.smartphone.quantity}"/>
+            <p:outputLabel value="Carrier: "/>
+            <p:inputText id="Carrier" value="#{smartphoneController.smartphone.carrier}"/>
+            <p:outputLabel value="Operating System: "/>
+            <p:inputText id="System" value="#{smartphoneController.smartphone.operatingSystem}"/>
+            <p:outputLabel value="Color: "/>
+            <p:inputText id="color" value="#{smartphoneController.smartphone.color}"/>
+            
+        </p:panelGrid>
+            <br/>
+            <p:commandButton value="Create a Smartphone" action="#{smartphoneController.doCreateSmartphone}">
+                <p:ajax update="@form" />
+            </p:commandButton>
+            <p:commandButton value="Reset Fields" update="panel" process="@this">  
+            <p:resetInput target="panel"/>  
+        </p:commandButton> 
+
+        </h:form>
+        <hr/>
+        <h:form>
+        <h:commandLink id="stockSmartphoneLink" value="The Stocks of Smartphone" action="#{smartphoneController.findAllSmartphones}"> 
+        </h:commandLink> | 
+  
+        <h:link outcome="index.xhtml" value="Main Page"/>
+        </h:form>
+    </h:body>
+</html>
+
